@@ -307,7 +307,7 @@ bool LocalProxy::storeActivePublication(LocalHost *_publisher, String &fullID, u
                 ap->publishers.find_insert(_publisher, STOP_PUBLISH);
                 /*update the published remote scopes for this publsher*/
                 _publisher->activePublications.find_insert(StringSetItem(fullID));
-                click_chatter("LocalProxy: Active Scope Publication %s exists...updated for local publisher %s", fullID.quoted_hex().c_str(), _publisher->publisherID.c_str());
+                //click_chatter("LocalProxy: Active Scope Publication %s exists...updated for local publisher %s", fullID.quoted_hex().c_str(), _publisher->publisherID.c_str());
             } else {
                 click_chatter("LocalProxy: LocalRV: error while trying to update list of publishers for active publication %s..strategy mismatch", ap->fullID.quoted_hex().c_str());
             }
