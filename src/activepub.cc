@@ -28,6 +28,7 @@ ActiveSubscription::ActiveSubscription(String _fullID, unsigned char _strategy, 
     fullID = _fullID;
     strategy = _strategy;
     isScope = _isScope;
+    hop_count = 255 ;
 }
 
 ActiveSubscription::~ActiveSubscription() {
