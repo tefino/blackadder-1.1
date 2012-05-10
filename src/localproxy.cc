@@ -469,7 +469,7 @@ void LocalProxy::handleRVNotification(Packet *p) {
             for(int i = 0 ; i < no_sub ; i++)
             {
                 String temp_sub((const char*)(p->data() + sizeof (type) + sizeof (numberOfIDs) + index+\
-                                FID_LEN + sizeof(no_sub)+i*PURSUIT_ID_LEN+i*FID_LEN, PURSUIT_ID_LEN)) ;
+                                FID_LEN + sizeof(no_sub)+i*PURSUIT_ID_LEN+i*FID_LEN), PURSUIT_ID_LEN) ;
                 BABitvector temp_FID(FID_LEN*8) ;
                 memcpy(temp_FID._data, p->data() + sizeof (type) + sizeof (numberOfIDs) + index + FID_LEN + sizeof(no_sub)+\
                         i*PURSUIT_ID_LEN+i*FID_LEN+PURSUIT_ID_LEN,FID_LEN) ;
