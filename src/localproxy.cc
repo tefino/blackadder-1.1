@@ -1165,7 +1165,7 @@ void LocalProxy::sendProbingMessage(Vector<String> IDs, HashTable<String, BABitv
     }
     packet_len_without_FID = sizeof(NOofID)/*numberofID*/+NOofID*sizeof(IDLength)/*number of fragment*/+\
                  total_ID_length/*IDs*/+FID_LEN/*reverse_path*/+sizeof(hop_count)/*hop passed*/+FID_LEN/*internal LID*/+\
-                 sizeof(origin)/*cache or pub*/+sizeof(noofpub)/*number of pub*/+PURSUIT_ID_LEN/*pub nodeID*/ ;
+                 sizeof(origin)/*cache or pub*/+sizeof(noofpub)/*number of pub*/+2*PURSUIT_ID_LEN/*pub notificationIID*/ ;
     probingchar = (char*)malloc(packet_len_without_FID) ;
     memcpy(probingchar, &NOofID, sizeof(NOofID)) ;//#ofID
 
