@@ -127,7 +127,8 @@ void CacheUnit::push(int port, Packet *p)
             }
         }
         hop_count++ ;
-        memcpy(packet->data()+14+FID_LEN+sizeof(numberOfIDs)+index+FID_LEN+FID_LEN, &hop_count, sizeof(hop_count)) ;
+        memcpy(packet->data()+14+FID_LEN+sizeof(numberOfIDs)+index+FID_LEN, &hop_count, sizeof(hop_count)) ;
+        packet->set_anno_u32(0, (uint32_t)(index+sizeof(numberOfIDs)+FID_LEN+14)) ;
         output(0).push(packet) ;
         /*this is for k-anycast
         for(cache_iter = cache.begin() ; cache_iter != cache.end() ; cache_iter++)//search for scope ID match
