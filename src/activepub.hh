@@ -128,7 +128,7 @@ public:
      * reverse FID*/
     BABitvector reverse_FID ;
     BABitvector incoming_FID ;
-    unsigned char hop_count ;
+    unsigned char hop_count=255 ;
     unsigned char origin ;
     int noofpub ;
     String notificationIID ;
