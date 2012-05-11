@@ -1303,7 +1303,8 @@ void LocalProxy::handleProbingMessage(Vector<String> IDs, Packet* p, BABitvector
                            vec_str_iter->length()) ;
                     IDindex += sizeof(IDLength)+vec_str_iter->length() ;
                 }
-                memcpy(packet->data()+FID_LEN+sizeof(numberofID)+sizeof(type)+sizeof(NOofID)+IDindex, as->incoming_FID._data, FID_LEN) ;
+                memcpy(packet->data()+FID_LEN+sizeof(numberofID)+sizeof(iidlen)+iidlen*PURSUIT_ID_LEN+\
+                	sizeof(type)+sizeof(NOofID)+IDindex, as->incoming_FID._data, FID_LEN) ;
                 output(2).push(packet) ;
             }
         }
