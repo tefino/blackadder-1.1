@@ -442,7 +442,7 @@ again:
         {
             memcpy(ev.to_sub_FID._data, (char *) ev.buffer+sizeof(struct nlmsghdr)+sizeof(unsigned char)+sizeof(unsigned char)+\
                                             ((int) id_len) * PURSUIT_ID_LEN, FID_LEN) ;
-            fid_len = FID_LEN ;
+            ev.fid_len = FID_LEN ;
         }
         else{
             ev.data = NULL;
