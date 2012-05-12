@@ -76,7 +76,7 @@ void LocalProxy::push(int in_port, Packet * p) {
         BABitvector incoming_FID(FID_LEN*8) ;
         index = 0;
         /*read the "header"*/
-        memcpy(&incoming_FID, p->data(), FID_LEN) ;
+        memcpy(incoming_FID._data, p->data(), FID_LEN) ;
         numberOfIDs = *(p->data()+FID_LEN);
         /*Read all the identifiers*/
         for (int i = 0; i < (int) numberOfIDs; i++) {
