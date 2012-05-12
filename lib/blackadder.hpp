@@ -35,7 +35,7 @@
 #include <iostream>
 
 #include "blackadder_defs.h"
-
+#include "bitvector.hpp"
 
 using namespace std;
 
@@ -309,7 +309,8 @@ public:
      * Under two conditions, this variable will be used.
      * 1.the sub sends a PLEASE_PUSH_DATA request to the pub
      * 2.the cache in the forwarding node was flushed, the forwarding node redirect the subscription to the publisher*/
-    string to_sub_FID ;
+    Bitvector to_sub_FID ;
+    unsigned int fid_len ;
     /**@brief a buffer containing all the above, the buffer is used to receive the message from blackadder.
      */
     void *buffer; /*do not use that...only the destructor uses it to delete the whole buffer once*/
