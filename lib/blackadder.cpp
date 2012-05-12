@@ -443,6 +443,8 @@ again:
             memcpy(ev.to_sub_FID._data, (char *) ev.buffer+sizeof(struct nlmsghdr)+sizeof(unsigned char)+sizeof(unsigned char)+\
                                             ((int) id_len) * PURSUIT_ID_LEN, FID_LEN) ;
             ev.fid_len = FID_LEN ;
+            ev.data = NULL ;
+            ev.data_len = 0 ;
         }
         else{
             ev.data = NULL;
@@ -458,8 +460,10 @@ again:
 }
 
 Event::Event()
-    : type(0), id(), data(NULL), data_len(0), buffer(NULL), to_sub_FID(), fid_len(0)
+    : type(0), id(), data(NULL), data_len(0), buffer(NULL), fid_len(0)
 {
+    Bitvector tempfid(FID_LEN*8) ;
+    to_sub_FID=tempfid ;
 }
 
 Event::Event(Event &ev) {
