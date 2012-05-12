@@ -457,7 +457,7 @@ again:
 }
 
 Event::Event()
-    : type(0), id(), data(NULL), data_len(0), buffer(NULL), to_sub_FID()
+    : type(0), id(), data(NULL), data_len(0), buffer(NULL), to_sub_FID(), fid_len(0)
 {
 }
 
@@ -465,12 +465,13 @@ Event::Event(Event &ev) {
     type = ev.type;
     id = ev.id;
     data_len = ev.data_len;
-    buffer = malloc(sizeof (struct nlmsghdr) + sizeof (type) + sizeof (unsigned char) + id.length() + data_len);
+    fid_len = ev.fid_len ;
+    buffer = malloc(sizeof (struct nlmsghdr) + sizeof (type) + sizeof (unsigned char) + id.length() + fid_len+ data_len);
     to_sub_FID = ev.to_sub_FID ;
     memcpy(buffer, ev.buffer, sizeof (struct nlmsghdr) + sizeof (type) +\
-           sizeof (unsigned char)/*# fragments*/ + id.length()+to_sub_FID.length() + data_len);
+           sizeof (unsigned char)/*# fragments*/ + id.length()+fid_len + data_len);
     data = (char *) buffer + sizeof (struct nlmsghdr) + sizeof (type) +\
-            sizeof (unsigned char) + id.length()+to_sub_FID.length();
+            sizeof (unsigned char) + id.length()+fid_len;
 }
 
 Event::~Event() {
