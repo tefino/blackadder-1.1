@@ -1256,7 +1256,7 @@ void LocalProxy::handleProbingMessage(Vector<String> IDs, Packet* p, BABitvector
                     total_ID_length += vec_str_iter->length() ;
                 }
                 packet_len = FID_LEN/*reverse FID*/+sizeof(NOofID)/*numberofID*/+NOofID*sizeof(IDLength)/*number of fragment*/+\
-                             total_ID_length/*IDs*/+FID_LEN/*incoming path*/ ;
+                             total_ID_length/*IDs*/+FID_LEN/*incoming path*/+2*PURSUIT_ID_LEN/*notification IID*/ ;
                 packet = Packet::make(packet_len) ;
                 memcpy(packet->data(), as->reverse_FID._data, FID_LEN) ;
                 memcpy(packet->data()+FID_LEN, &NOofID, sizeof(NOofID)) ;//#ofID
