@@ -467,7 +467,7 @@ void Domain::startTM() {
     }
     pclose(ssh_command);
     /*now start the TM*/
-    command = "ssh " + user + "@" + TM_node->testbed_ip + " \"/home/" + "/blackadder-1.0/TopologyManager/tm " + write_conf + "topology.graphml > /dev/null 2>&1 &\"";
+    command = "ssh " + user + "@" + TM_node->testbed_ip + " \"/home/" + "/blackadder-1.1/TopologyManager/tm " + write_conf + "topology.graphml > /tmp/tm.log 2>&1 &\"";
     cout << command << endl;
     ssh_command = popen(command.c_str(), "r");
     if (ssh_command == NULL) {
