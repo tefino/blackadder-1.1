@@ -667,7 +667,7 @@ void LocalProxy::pushDataToRemoteSubscribers(Vector<String> &IDs, BABitvector &F
         index = index + sizeof (IDLength) + (*it).length();
         it++;
     }
-    output(2).push(newPacket);
+    output(5).push(newPacket);
 }
 
 void LocalProxy::handleNetworkPublication(Vector<String> &IDs, Packet *p /*the packet has some headroom and only the data which hasn't been copied yet*/) {
