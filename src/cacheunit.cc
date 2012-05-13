@@ -8,7 +8,7 @@ CLICK_DECLS
 bool CacheEntry::matchIID(Vector<String>& fullIDs)
 {
     String IID ;
-    IID = fullIDs[0].substring(fullIDs[0].length() - PURSUIT_ID_LEN) ;//get the information ID
+    IID = fullIDs[0].substring(fullIDs[0].length() - PURSUIT_ID_LEN, PURSUIT_ID_LEN) ;//get the information ID
     String tempSID ;
     Vector<String> forSIDupdate ;
     Vector<String>::iterator input_iter ;
