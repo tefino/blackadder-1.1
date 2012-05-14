@@ -200,7 +200,15 @@ void Forwarder::push(int in_port, Packet *p) {
                 {
                     /*our proposal protocol type 0x080b to be subinfo*/
                     click_chatter("fw: sending out a subinfo request") ;
+                    BABitvector testfid(FID_LEN*8) ;
+                    testfid = FID & gc->iLID ;
+                    
                     memcpy(newPacket->data() + MAC_LEN + MAC_LEN, &subinfo_type, 2) ;
+                    if( testfid == gc->iLID )
+                    {
+                        output(3).push(newPacket) ;
+                        return ;
+                    }
                 }
                 else if(in_port == 5)
                 {
