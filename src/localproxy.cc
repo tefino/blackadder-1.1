@@ -1230,7 +1230,7 @@ void LocalProxy::handleProbingMessage(Vector<String> IDs, Packet* p, BABitvector
             continue ;
         as->allKnownIDs = IDs ;
         as->noofpub++ ;
-        if(as->hop_count > hop_count)
+        if(as->hop_count >= hop_count)
         {
             as->hop_count = hop_count ;
             as->incoming_FID = incoming_FID ;
