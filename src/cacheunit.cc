@@ -122,6 +122,7 @@ void CacheUnit::push(int port, Packet *p)
                 memcpy(packet->data()+14+FID_LEN+sizeof(numberOfIDs)+index+FID_LEN, &hop_count, sizeof(hop_count)) ;
                 memcpy(packet->data()+14+FID_LEN+sizeof(numberOfIDs)+index+FID_LEN+sizeof(hop_count), gc->iLID._data, FID_LEN) ;
                 memcpy(packet->data()+14+FID_LEN+sizeof(numberOfIDs)+index+FID_LEN+sizeof(hop_count)+FID_LEN, &origin, sizeof(origin)) ;
+                packet->set_anno_u32(0, (uint32_t)(index+sizeof(numberOfIDs)+FID_LEN+14)) ;
                 output(0).push(packet) ;
                 return ;
             }
