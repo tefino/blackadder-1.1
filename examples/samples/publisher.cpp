@@ -60,7 +60,7 @@ int main(int argc, char* argv[]) {
             case PLEASE_PUSH_DATA:
                 cout << "PLEASE_PUSH_DATA: " << chararray_to_hex(ev.id) << endl;
                 for (int i = 0; i < 1; i++) {
-                    ba->publish_data(ev.id, IMPLICIT_RENDEZVOUS, (char*)ev.to_sub_FID.c_str(), FID_LEN, payload, payload_size);
+                    ba->publish_data(ev.id, IMPLICIT_RENDEZVOUS, (char*)ev.to_sub_FID.to_string().c_str(), FID_LEN, payload, payload_size);
                 }
                 break;
             case STOP_PUBLISH:
