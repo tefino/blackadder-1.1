@@ -366,6 +366,7 @@ void Domain::writeClickFiles(bool montoolstub) {
         click_conf<<"cacheunit[3]->[1]fw;"<<endl ;
 
         click_conf<<"classifier[1]->[0]cacheunit;"<<endl ;
+        click_conf<<"fw[3]-?[1]cacheunit"<<endl ;
         click_conf<<"classifier[2]->[1]cacheunit;"<<endl ;
         click_conf<<"classifier[3]->[2]cacheunit;"<<endl ;
         click_conf.close();
